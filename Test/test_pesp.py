@@ -3,13 +3,8 @@ from selene import browser, by, be, have
 from selene._managed import config
 from selene.support.shared.jquery_style import s, ss
 
-from Respect_testing.model import resp
 
 def test_open():
-    resp.open()
-
-
-def test_open1():
     browser.open('https://www.ecosia.org/')
     browser.driver.maximize_window()
     browser.element(by.name('q')).type("respect ua").press_enter()

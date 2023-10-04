@@ -11,7 +11,7 @@ def test_open():
     browser.all(by.css('.result')).first.click()
     time.sleep(5)
 
-def test_search():
+def test_search1():
     browser.open('https://respect-shoes.com.ua')
     browser.driver.maximize_window()
     # Вибір категорії Жіноче взуття
@@ -23,7 +23,7 @@ def test_search():
     # Фільтр Колір
     browser.element('.cp-filter-group:nth-of-type(3)').click()
     # Вибір кольору чорний
-    browser.element('.cp-filter-items.cp-filter-cap .cp-label-item:nth-of-type(5)').click()
+    browser.element('.cp-filter-items.cp-filter-cap .cp-label-item:nth-of-type(6)').click()
     browser.element('.cp-filter-button.active').click()
     # Вибір категорії Розмір
     browser.element('.cp-filter-group:nth-of-type(4)').click()
@@ -31,7 +31,7 @@ def test_search():
     browser.element('.cp-filter-items.cp-check-row .cp-label-item:nth-of-type(4)').click()
     browser.element('.cp-filter-button.active').click()
     # Перевірка
-    browser.all('.col8-xl-8.col8-md-6.col8-sm-6.col8-xs-6.cp-selected-filters-box').should(have.texts('39'))
+    browser.all('.col8-xl-8.col8-md-6.col8-sm-6.col8-xs-6.cp-selected-filters-box').should(have.texts('чорний'))
     time.sleep(5)
 
 def test_search_button():
@@ -81,6 +81,7 @@ def test_authorization():
     browser.element('.rowProducts.row8>div:nth-of-type(6)').click()
     # Додавання до обраного
     browser.element('.pi-heart-text').click()
+    # Перевірка
     browser.all('.alert>div').should(have.texts('ТОВАР ДОДАНО В ОБРНЕ!'))
     browser.all('.product').should(have.texts('3,790 грн'))
     time.sleep(5)

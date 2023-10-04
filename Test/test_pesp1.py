@@ -39,7 +39,7 @@ def test_search_button():
     browser.driver.maximize_window()
     browser.element('.search').click()
     # Введення в пошук Туфлі
-    browser.element('.box>input').type('Босоніжки ').press_enter()
+    browser.element('.box>input').type('Босоніжки').press_enter()
     # browser.all('.categoryBox')
     time.sleep(5)
 

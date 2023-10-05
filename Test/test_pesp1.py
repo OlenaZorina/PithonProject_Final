@@ -101,7 +101,7 @@ def test_list_of_desired_products():
     time.sleep(5)
 
 
-def test_finding():
+def test_adding():
     browser.open('https://respect-shoes.com.ua')
     browser.driver.maximize_window()
     browser.element('#menu>ul>li>a').click()
@@ -121,7 +121,7 @@ def test_finding():
 
 
 # варіант 2
-def test_finding1():
+def test_adding1():
     browser.open('https://respect-shoes.com.ua')
     browser.driver.maximize_window()
     browser.element('#menu>ul>li>a').click()

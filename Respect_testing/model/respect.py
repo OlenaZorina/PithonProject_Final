@@ -49,7 +49,7 @@ class Respect:
 
     def should_be_search(self, text: str):
         self.filters.should(have.texts(text))
-        time.sleep(10)
+        time.sleep(5)
         return self
 
     def search_button(self, name: str):
@@ -60,9 +60,9 @@ class Respect:
         time.sleep(5)
         return self
 
-    def should_be_search_button(self):
+    def should_be_search_button(self, name: str):
         # Перевірка наявності двох елементів пошуку
-        page_text = browser.driver.page_source.count('Жіночі босоніжки TAMARIS білий')
+        page_text = browser.driver.page_source.count(name)
         print('Повторюється:', page_text, 'рази')
         return self
 
@@ -105,7 +105,7 @@ class Respect:
 
     def should_be_authorization(self, text: str):
         self.authoriz.should(have.texts(text))
-        time.sleep(5)
+        time.sleep(3)
         return self
 
     def desired_products(self):
@@ -137,12 +137,13 @@ class Respect:
     def should_be_edit(self, num: str ):
         # перевірка наявності товару в кошику в кількості 2
         self.number.should(have.texts(num))
-        time.sleep(5)
+        time.sleep(2)
         return self
 
     def remove(self):
         # видалення товару з кошика
         s('[style="display:block;"]').click()
+        time.sleep(2)
         return self
 
     def should_be_remove(self, text1: str):

@@ -1,4 +1,3 @@
-import time
 from Respect_testing.model import resp
 
 def test_search():
@@ -9,7 +8,7 @@ def test_search():
 def test_search_button():
     resp.open()
     resp.search_button('tamaris')
-    resp.should_be_search_button()
+    resp.should_be_search_button('Жіночі босоніжки TAMARIS білий')
 
 def test_registration():
     resp.open()

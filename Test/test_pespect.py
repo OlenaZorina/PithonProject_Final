@@ -1,6 +1,5 @@
 import time
 from selene import browser, by, be, have
-from selene._managed import config
 from selene.support.shared.jquery_style import s, ss
 
 def test_search():
@@ -24,7 +23,7 @@ def test_search():
     s('.cp-filter-button.active').click()
     # Перевірка
     ss('.col8-xl-8.col8-md-6.col8-sm-6.col8-xs-6.cp-selected-filters-box').should(have.texts('чорний'))
-    time.sleep(5)
+    time.sleep(3)
 
 def test_search_button():
     browser.open('https://respect-shoes.com.ua')
@@ -32,7 +31,7 @@ def test_search_button():
     s('.search').click()
     # Введення в пошук  назву бренда 'tamaris'
     s('.box>input').type('tamaris').press_enter()
-    time.sleep(1)
+    time.sleep(2)
     # Перевірка наявності двох елементів пошуку
     page_text = browser.driver.page_source.count('Жіночі босоніжки TAMARIS білий')
     print('Повторюється:', page_text, 'рази')
@@ -55,8 +54,7 @@ def test_registration():
     s('#addr').type('майдан Павлівський, 10')
     s('[name="agree"]').click()
     s('.register-button').click()
-    # browser.all('.col-md-12>div').should(have.texts('запис'))
-    time.sleep(5)
+    time.sleep(2)
 
 def test_authorization():
     browser.open('https://respect-shoes.com.ua')
@@ -66,7 +64,7 @@ def test_authorization():
     s('[placeholder="ПАРОЛЬ"]').type('a0822a10f2')
     s('.button').click()
     ss('.col-md-12>div').should(have.texts('Мій обліковий запис'))
-    time.sleep(5)
+    time.sleep(2)
     # Додавання товару в Обране після реєстрації
     # Вибір категорії Жіноче взуття
     s('#menu>ul>li').click()
@@ -76,7 +74,7 @@ def test_authorization():
     s('.pi-heart-text').click()
     # Перевірка
     ss('.alert>div').should(have.texts('ТОВАР ДОДАНО В ОБРНЕ!'))
-    time.sleep(5)
+    time.sleep(2)
 
 def test_list_of_desired_products():
     browser.open('https://respect-shoes.com.ua')
@@ -89,7 +87,7 @@ def test_list_of_desired_products():
     s('.pi-heart-text').click()
     # Перевірка
     ss('.alert>div').should(have.texts('ТОВАР ДОДАНО В ОБРНЕ!'))
-    time.sleep(5)
+    time.sleep(2)
 
 def test_adding():
     browser.open('https://respect-shoes.com.ua')
@@ -110,7 +108,6 @@ def test_adding():
     s('[style="display:block;"]').click()
     # перевірка пустого кошика
     ss('.col-md-12 .account').should(have.texts('Ваш кошик порожній!'))
-    #browser.all('.container .row .col-md-12 .account').should(have.texts('Ваш'))
     time.sleep(2)
 
 
